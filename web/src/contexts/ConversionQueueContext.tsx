@@ -91,7 +91,7 @@ export function ConversionQueueProvider({ children }: { children: ReactNode }) {
             inputFilename: file.name,
             inputSize: file.size,
             inputFormat: fileToInputFormat(file),
-            outputFormat: settings.targetFormat,
+            outputFormat: settings.targetFormat!,
             status: 'error',
             progress: 0,
             errorCode: validation.errorCode,
@@ -109,13 +109,13 @@ export function ConversionQueueProvider({ children }: { children: ReactNode }) {
           inputFilename: file.name,
           inputSize: file.size,
           inputFormat: fileToInputFormat(file),
-          outputFormat: settings.targetFormat,
+          outputFormat: settings.targetFormat!,
           status: 'queued',
           progress: 0,
           errorCode: null,
           errorMessage: null,
           outputBlob: null,
-          outputFilename: deriveOutputFilename(file.name, settings.targetFormat),
+          outputFilename: deriveOutputFilename(file.name, settings.targetFormat!),
         };
         validFiles.push({ file, job });
       }
@@ -164,7 +164,7 @@ export function ConversionQueueProvider({ children }: { children: ReactNode }) {
           cancelSignals.current.delete(job.id);
 
           if (result.success) {
-            const blob = new Blob([result.output]);
+            const blob = new Blob([result.output as BlobPart]);
             dispatch({
               type: 'COMPLETE',
               jobId: job.id,
