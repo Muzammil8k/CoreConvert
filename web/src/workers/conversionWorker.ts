@@ -123,7 +123,7 @@ async function processConvert(command: Extract<WorkerCommand, { type: 'CONVERT' 
     return;
   }
 
-  const outputFilename = deriveOutputFilename(filename, settings.targetFormat);
+  const outputFilename = deriveOutputFilename(filename, settings.targetFormat!);
 
   // Get a fresh FFmpeg instance for this job
   let ffmpeg: FFmpeg;
