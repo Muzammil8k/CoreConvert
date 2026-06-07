@@ -1,10 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // This empty object tells Turbopack: "I am aware you exist, but please back off."
+  turbopack: {}, 
+  
   async headers() {
     return [
       {
-        // Apply COOP/COEP to all routes including static /ffmpeg/ files
         source: '/(.*)',
         headers: [
           { key: 'Cross-Origin-Opener-Policy',  value: 'same-origin'  },
