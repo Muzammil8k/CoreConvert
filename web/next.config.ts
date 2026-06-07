@@ -1,11 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // This disables Turbopack for the build process
-  experimental: {
-    // @ts-ignore - Some versions of NextConfig types are strict about experimental flags
-    turbopack: false,
-  },
   async headers() {
     return [
       {

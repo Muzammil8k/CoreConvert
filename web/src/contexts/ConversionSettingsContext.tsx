@@ -8,6 +8,9 @@ interface ConversionSettingsContextValue {
 
 const DEFAULT_SETTINGS: ConversionSettings = {
   targetFormat: 'PNG',
+  imageFormat: 'PNG',       
+  videoFormat: 'MP4',       
+  videoResolution: '1080p', 
   quality: 85,
   autoDownload: false,
 };
